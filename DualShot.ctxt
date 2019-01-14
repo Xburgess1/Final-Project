@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=DualShot
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ DualShot\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=DualShot()
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ DualShot\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ die()
+comment3.text=\r\n\ removes\ the\ BasicDefender\ from\ the\ world\r\n\ \r\n\ @param\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+comment4.params=
+comment4.target=void\ shoot()
+numComments=5

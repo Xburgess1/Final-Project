@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=GO
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ GO\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ GO\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=boolean\ getLevel2()
+comment3.params=l2
+comment3.target=void\ setLevel2(boolean)
+comment4.params=
+comment4.target=boolean\ getLevel3()
+comment5.params=l3
+comment5.target=void\ setLevel3(boolean)
+comment6.params=
+comment6.target=boolean\ getLevel4()
+comment7.params=l4
+comment7.target=void\ setLevel4(boolean)
+comment8.params=
+comment8.target=boolean\ getLevel5()
+comment9.params=l5
+comment9.target=void\ setLevel5(boolean)
+numComments=10
