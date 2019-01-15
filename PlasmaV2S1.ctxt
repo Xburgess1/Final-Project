@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=PlasmaV2S1
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ PlasmaV2S1\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ Act\ sets\ its\ own\ location\ 6\ less\ then\ it's\ own\ y\ location.\ If\ the\ plasma\ bullet\ reaches\ the\ edge\ of\ the\ world\ it\ removes\ itself\r\n\ \r\n\ @param\ None\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+numComments=2
