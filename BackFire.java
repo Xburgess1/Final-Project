@@ -8,55 +8,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BackFire extends Enemies
 {
+    //private double variable for the health of the BackFire
     private double health = 4;
-    
+    //private int variable for counting the movements of the BackFire
     private int movementCount = 0;
-    
+
     /**
-     * Act - do whatever the BackFire wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act calls the shooting method and if the health of the BackFire reaches 0 or less it calls the die method, it calls the checkDamage method and
+     * ands 1 to the movementCount variable. If the health is equal to or more then 1 it continues a series of movements which get the BackFire to
+     * move side to side over and over.
+     * 
+     * @param None there are no parameters
+     * @return there is no return
      */
     public void act() 
     {
-        //if is touchign a BulletV1S1 it removes the bullet and takes one damage
-        if(isTouching(BulletV1S1.class))
-        {
-            removeTouching(BulletV1S1.class);
-            health = health - 1;
-        }
-        //if is touching MissleV1S1 it removes the missle and takes 3 damage
-        else if(isTouching(MissleV1S1.class))
-        {
-            removeTouching(MissleV1S1.class);
-            health = health - 3;
-        }
-        //if is touching PlasmaV2S1 it removes the plasma and takes 2 damage
-        else if(isTouching(PlasmaV2S1.class))
-        {
-            removeTouching(PlasmaV2S1.class);
-            health = health - 1.5;
-        }
-        else if(isTouching(PlasmaSecV2S1.class))
-        {
-            removeTouching(PlasmaSecV2S1.class);
-            health = health - 3;
-        }
-        else if(isTouching(ToxicWasteV3S1.class) && health > 2)
-        {
-            removeTouching(ToxicWasteV3S1.class);
-            health = health - 1.5;
-        }
-        else if(isTouching(ToxicWasteV3S1.class) && health <= 2)
-        {
-            health = health - 1.5;
-        }
-        else if(isTouching(NukeV3S1.class))
-        {
-            die();
-            removeTouching(NukeV3S1.class);
-        }
+        shooting();
         
-        //if the health reaches 0 it calls the die method
+        movementCount++;
+        
+        checkDamage();
+
         if(health <= 0)
         {
             die();
@@ -70,27 +42,77 @@ public class BackFire extends Enemies
             }
             else if( movementCount < 60 )
             {
-            //Greenfoot.delay(30);
                 setLocation(getX() -1, getY());
             }
             else if( movementCount < 81 )
             {
-                //Greenfoot.delay(30);
                 setLocation(getX() +1, getY());
-                //Greenfoot.delay(30);
             }
             else
             {
                 movementCount = 0;
             }
         }
-        
+    }
+    
+    /**
+     * checkDamaged checks to see if the BackFire is touching any of the bullets. Depending on what bullet or missle it is touching it will lose the 
+     * right amount of health. If it is touching a toxic waste and it's health is less then or equal to 1.5 it will die but not remoe the bullet like
+     * the other ones. If it is touching a nuke it dies.
+     * 
+     * @param None there are no parameters
+     * @return there is no return
+     */
+    private void checkDamage()
+    {
+        if(isTouching(BulletV1S1.class))
+        {
+            removeTouching(BulletV1S1.class);
+            health = health - 1;
+        }
+        else if(isTouching(MissleV1S1.class))
+        {
+            removeTouching(MissleV1S1.class);
+            health = health - 3;
+        }
+        else if(isTouching(PlasmaV2S1.class))
+        {
+            removeTouching(PlasmaV2S1.class);
+            health = health - 1.5;
+        }
+        else if(isTouching(PlasmaSecV2S1.class))
+        {
+            removeTouching(PlasmaSecV2S1.class);
+            health = health - 3;
+        }
+        else if(isTouching(ToxicWasteV3S1.class) && health > 1.6)
+        {
+            removeTouching(ToxicWasteV3S1.class);
+            health = health - 1.5;
+        }
+        else if(isTouching(ToxicWasteV3S1.class) && health <= 1.5)
+        {
+            health = health - 1.5;
+        }
+        else if(isTouching(NukeV3S1.class))
+        {
+            die();
+            removeTouching(NukeV3S1.class);
+        }
+    }
+    
+    /**
+     * shooting gets a random number between 0 and 999, if that number rolled is a 0 it adds an EnemyBullet at the end of the barrel.
+     * 
+     * @param None there are no parameters
+     * @return there is no return
+     */
+    private void shooting()
+    {
         if(Greenfoot.getRandomNumber(1000) < 1)
         {
             getWorld().addObject(new EnemyBullet(), getX(), getY() + 15);
         }
-        
-        movementCount++;
     }
     
     /**
