@@ -14,7 +14,7 @@ public class NukeV3S1 extends Secondary
      */
     public void act() 
     {
-        //does 10 damage and charges slow meant for bosses or shield generators
+        //does 10 damage and charges slow meant for bosses 
         
         setLocation(getX(), getY() -2);
         

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=S1Select
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ S1Select\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ if\ the\ user\ clicks\ of\ the\ ship\ it\ sets\ s1Selecting\ to\ true\ and\ if\ s1Selecting\ is\ true\ it\ calls\ the\ weapons\ class\r\n\ \r\n\ @param\ None\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+comment2.params=
+comment2.target=void\ weapons()
+comment2.text=\r\n\ weapons\ add\ the\ V1S1Select\ and\ MissleSelect\ to\ the\ world.\ If\ lev2Complete\ is\ true\ it\ adds\ the\ V2S1Select\ to\ the\ world\ and\ if\ Lev4Complete\r\n\ is\ true\ it\ adds\ PlasmaSecSelect\ to\ the\ world.\r\n\ \r\n\ @param\ None\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+numComments=3

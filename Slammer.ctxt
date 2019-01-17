@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Slammer
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Slammer\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Slammer()
+comment1.text=\r\n\ The\ constructor\ sets\ up\ the\ variables\ for\ the\ Slammer\r\n\ \r\n\ @param\ None\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Slammer\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ checkHit()
+comment3.text=\r\n\ checkHit\ checks\ to\ see\ if\ the\ Slammer\ has\ been\ touched\ by\ a\ bullet\ or\ a\ missle.\ If\ so\ Slammer\ will\ take\ the\ right\ amount\ of\ damage.\ The\ damage\ \r\n\ is\ reduced\ form\ the\ normal\ amount.\ If\ it\ is\ touching\ a\ toxic\ waste\ bullet\ and\ dies\ the\ toxic\ waste\ does\ not\ get\ destroyed.\ If\ it\ is\ touching\ a\r\n\ nuke\ the\ Slammer\ takes\ 9\ damage.\r\n\ \r\n\ @param\ None\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+comment4.params=
+comment4.target=void\ settingImage()
+comment4.text=\r\n\ settingImage\ sets\ the\ image\ of\ Slammer\ depending\ on\ how\ much\ health\ it\ is\ at.\ if\ it\ is\ between\ 135\ and\ 112\ it\ sets\ it\ to\ SlammerDamaged1.\r\n\ If\ the\ health\ is\ at\ 111\ to\ 92\ it\ sets\ the\ image\ to\ SlammerDamaged2,\ if\ the\ health\ is\ at\ 91\ to\ 71\ it\ sets\ the\ image\ to\ SlammerDamaged3,\ if\ the\r\n\ health\ is\ at\ 70\ to\ 39\ it\ sets\ the\ image\ to\ SlammerDamaged4,\ and\ if\ the\ health\ is\ 38\ or\ lower\ it\ sets\ the\ image\ to\ SlammerDamaged5.\ \r\n\ \r\n\ @param\ None\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+comment5.params=
+comment5.target=void\ die()
+comment5.text=\r\n\ die\ removes\ the\ Slammer\ from\ the\ world\r\n\ \r\n\ @param\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+numComments=6

@@ -1,23 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MissleV1S1 here.
+ * Write a description of class SlammerExplode1 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MissleV1S1 extends Secondary
+public class SlammerExplode1 extends Enemies
 {
     /**
-     * Act - do whatever the MissleV1S1 wants to do. This method is called whenever
+     * Act - do whatever the SlammerExplode1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        //does 3 damage 
-
-        setLocation(getX(),getY()-4);
-        
+        setLocation(getX() - 12, getY() - 5);
         if(isAtEdge() == true)
         {
             getWorld().removeObject(this);

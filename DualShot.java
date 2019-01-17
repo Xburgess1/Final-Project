@@ -8,17 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DualShot extends Enemies
 {
-    private double health;
-    
+    //private double varaible for the amount of health the DualShot has
+    private double health = 6;
+    //private int variable for counting the movement of the DualShot
     private int movementCount = 0;
-    
+    //private int imageDelay for delaying the time between image switching
     private int imageDelay = 0;
-    
+    //private boolean variable for if the DualShot is charging it's weapon
     private boolean charging = false;
-    public DualShot()
-    {
-        health = 6;
-    }
     
     /**
      * Act - do whatever the DualShot wants to do. This method is called whenever
@@ -26,50 +23,10 @@ public class DualShot extends Enemies
      */
     public void act() 
     {
+        movementCount++;
         
+        checkDamage();
         
-        
-        
-        //if is touchign a BulletV1S1 it removes the bullet and takes one damage
-        if(isTouching(BulletV1S1.class))
-        {
-            removeTouching(BulletV1S1.class);
-            health = health - 1;
-        }
-        //if is touching MissleV1S1 it removes the missle and takes 3 damage
-        else if(isTouching(MissleV1S1.class))
-        {
-            removeTouching(MissleV1S1.class);
-            health = health - 3;
-        }
-        //if is touching PlasmaV2S1 it removes the plasma and takes 2 damage
-        else if(isTouching(PlasmaV2S1.class))
-        {
-            removeTouching(PlasmaV2S1.class);
-            health = health - 1.5;
-        }
-        else if(isTouching(PlasmaSecV2S1.class))
-        {
-            removeTouching(PlasmaSecV2S1.class);
-            health = health - 3;
-        }
-        else if(isTouching(ToxicWasteV3S1.class) && health > 2)
-        {
-            removeTouching(ToxicWasteV3S1.class);
-            health = health - 1.5;
-        }
-        else if(isTouching(ToxicWasteV3S1.class) && health <= 2)
-        {
-            health = health - 1.5;
-        }
-        else if(isTouching(NukeV3S1.class))
-        {
-            die();
-            removeTouching(NukeV3S1.class);
-        }
-        
-        
-        //if the health reaches 0 it calls the die method
         if(health <= 0)
         {
             die();
@@ -98,8 +55,6 @@ public class DualShot extends Enemies
             }
         }
         
-        movementCount++;
-        
         if(Greenfoot.getRandomNumber(1300) < 1)
         {
             charging = true;
@@ -122,8 +77,54 @@ public class DualShot extends Enemies
         }   
     }
     
+    
     /**
-     * removes the BasicDefender from the world
+     * chackDamage checks to see if the DualShot has been hit by any bullets or missles. If it is touching a toxic waste bullet and it's health is
+     * equal to or less than 1.5 it dies and doesn't remove the toxic waste bullet. If it is touching a nuke it dies.
+     * 
+     * @param None the are no parameters
+     * @return there is no return
+     */
+    private void checkDamage()
+    {
+        if(isTouching(BulletV1S1.class))
+        {
+            removeTouching(BulletV1S1.class);
+            health = health - 1;
+        }
+        else if(isTouching(MissleV1S1.class))
+        {
+            removeTouching(MissleV1S1.class);
+            health = health - 3;
+        }
+        else if(isTouching(PlasmaV2S1.class))
+        {
+            removeTouching(PlasmaV2S1.class);
+            health = health - 1.5;
+        }
+        else if(isTouching(PlasmaSecV2S1.class))
+        {
+            removeTouching(PlasmaSecV2S1.class);
+            health = health - 3;
+        }
+        else if(isTouching(ToxicWasteV3S1.class) && health > 1.6)
+        {
+            removeTouching(ToxicWasteV3S1.class);
+            health = health - 1.5;
+        }
+        else if(isTouching(ToxicWasteV3S1.class) && health <= 1.5)
+        {
+            health = health - 1.5;
+        }
+        else if(isTouching(NukeV3S1.class))
+        {
+            die();
+            removeTouching(NukeV3S1.class);
+        }
+    }
+    
+    /**
+     * removes the DualShot from the world
      * 
      * @param there are no parameters
      * @return there is no return
@@ -133,6 +134,12 @@ public class DualShot extends Enemies
         getWorld().removeObject(this);
     }
     
+    /**
+     * shoot adds two DualBullets at the ends of the barrels and sets the imageDelay to 0.
+     * 
+     * @param None there are no parameters
+     * @return there is no return
+     */
     private void shoot()
     {
         getWorld().addObject(new DualBullet(), getX() + 20, getY() + 20);
