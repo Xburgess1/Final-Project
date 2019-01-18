@@ -22,11 +22,6 @@ public class BasicDefender extends Enemies
      */
     public void act() 
     {
-        if(health <= 0)
-        {
-            die();
-        }
-        
         movementCount++;
         
         if(health >= 1)
@@ -50,6 +45,11 @@ public class BasicDefender extends Enemies
         }
         
         checkDamage();
+        
+        if(health <= 0)
+        {
+            die();
+        }
     }
     
     /**

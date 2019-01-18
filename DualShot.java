@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class DualShot extends Enemies
 {
     //private double varaible for the amount of health the DualShot has
-    private double health = 6;
+    private double health = 8;
     //private int variable for counting the movement of the DualShot
     private int movementCount = 0;
     //private int imageDelay for delaying the time between image switching
@@ -27,12 +27,7 @@ public class DualShot extends Enemies
         
         checkDamage();
         
-        if(health <= 0)
-        {
-            die();
-        }
-        
-        if(health >= 1)
+        if(health >= 0.1)
         {
             if( movementCount < 20 )
             {
@@ -55,7 +50,7 @@ public class DualShot extends Enemies
             }
         }
         
-        if(Greenfoot.getRandomNumber(1300) < 1)
+        if(Greenfoot.getRandomNumber(910) < 1)
         {
             charging = true;
         }
@@ -74,7 +69,12 @@ public class DualShot extends Enemies
                 shoot();
                 charging = false;
             }
-        }   
+        }  
+        
+        if(health <= 0)
+        {
+            die();
+        }
     }
     
     

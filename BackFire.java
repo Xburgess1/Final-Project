@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class BackFire extends Enemies
 {
     //private double variable for the health of the BackFire
-    private double health = 4;
+    private double health = 5;
     //private int variable for counting the movements of the BackFire
     private int movementCount = 0;
 
@@ -34,7 +34,7 @@ public class BackFire extends Enemies
             die();
         }
         
-        if(health >= 1)
+        if(health >= 0.1)
         {
             if( movementCount < 20 )
             {
