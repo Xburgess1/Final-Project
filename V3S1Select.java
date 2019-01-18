@@ -14,6 +14,14 @@ public class V3S1Select extends WeaponSelect
      */
     public void act() 
     {
-        // Add your action code here.
+        SpaceWorld space = (SpaceWorld)getWorld();
+        S1 select = space.getShip();
+        
+        if(Greenfoot.mouseClicked(this) == true)
+        {
+            select.setPlasmaV2Selected(false);
+            select.setBulletV1Selected(false);
+            select.setToxicV3Selected(true);
+        }
     }    
 }

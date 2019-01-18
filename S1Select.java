@@ -31,7 +31,7 @@ public class S1Select extends CharacterSelect
     
     /**
      * weapons add the V1S1Select and MissleSelect to the world. If lev2Complete is true it adds the V2S1Select to the world and if Lev4Complete
-     * is true it adds PlasmaSecSelect to the world.
+     * is true it adds PlasmaSecSelect to the world. If Lev5Complete is true it adds the Toxic Waste Select
      * 
      * @param None there are no parameters
      * @return there is no return
@@ -41,7 +41,7 @@ public class S1Select extends CharacterSelect
         getWorld().addObject(new V1S1Select(), 500, 500);
         getWorld().addObject(new MissleSelect(), 500, 550);
         
-        //getWorld().addObject(new V3S1Select(), 600, 503);
+        
         
         if(((SpaceWorld)getWorld()).getLev2Complete() == true)
         {
@@ -50,6 +50,10 @@ public class S1Select extends CharacterSelect
         if(((SpaceWorld)getWorld()).getLev4Complete() == true)
         {
             getWorld().addObject(new PlasmaSecSelect(), 550, 550);
+        }
+        if(((SpaceWorld)getWorld()).getLev5Complete() == true)
+        {
+            getWorld().addObject(new V3S1Select(), 600, 503);
         }
     }
     

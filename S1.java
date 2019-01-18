@@ -239,6 +239,16 @@ public class S1 extends Ships
     {
         plasmaV2Selected = v2Select;
     }
+    /**
+     * setToxicV3Selected allows other classes to change the toxicV1Selected variable
+     * 
+     * @param v3Select is used to set the value of toxicV1Selected
+     * @return there is no return
+     */
+    public void setToxicV3Selected(boolean v3Select)
+    {
+        toxicV1Selected = v3Select;
+    }
     
     /**
      * setMissleV1Selected allows other classes to change the missleV1Selected variable

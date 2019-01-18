@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Exo
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Exo\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Exo\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ checkDamage()
+comment2.text=\r\n\ chackDamage\ checks\ to\ see\ if\ the\ Exo\ has\ been\ hit\ by\ any\ bullets\ or\ missles.\ If\ it\ is\ touching\ a\ toxic\ waste\ bullet\ and\ it's\ health\ is\r\n\ equal\ to\ or\ less\ than\ 1.5\ it\ dies\ and\ doesn't\ remove\ the\ toxic\ waste\ bullet..\r\n\ \r\n\ @param\ None\ the\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+comment3.params=
+comment3.target=void\ die()
+comment3.text=\r\n\ removes\ the\ Exo\ from\ the\ world\r\n\ \r\n\ @param\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+comment4.params=
+comment4.target=void\ shoot()
+comment4.text=\r\n\ shoot\ adds\ two\ ExoBullets\ at\ the\ ends\ of\ the\ barrels.\r\n\ \r\n\ @param\ None\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+numComments=5

@@ -23,6 +23,7 @@ public class V2S1Select extends WeaponSelect
         {
             select.setPlasmaV2Selected(true);
             select.setBulletV1Selected(false);
+            select.setToxicV3Selected(false);
         }
     }    
 }

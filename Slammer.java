@@ -67,7 +67,7 @@ public class Slammer extends Enemies
         checkHit();
         
         settingImage();
-        if(midSlam == false && Greenfoot.getRandomNumber(400) < 1)
+        if(midSlam == false && Greenfoot.getRandomNumber(300) < 1)
         {
             midSlam = true;
         }

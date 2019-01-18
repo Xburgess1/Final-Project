@@ -20,6 +20,7 @@
         private boolean lev3Complete = false;
         private boolean lev4Complete = false;
         private boolean lev5Complete = false;
+        private boolean lev6Complete = false;
         private boolean level1 = true;
         /**
          * If there are levels you would like to skip, first set selection to true, second set the right amount of levCompletes to true. (ie. 
@@ -63,6 +64,8 @@
             checkLev4();
             
             checkLev5();
+            
+            checkLev6();
            
             while(selection == true)
             {
@@ -204,7 +207,8 @@
         
         /**
          * checkLev5 checks to see if getLevel5 is true and populated is false, if so it calls level5Spawn, selection to false and removes the GO 
-         * button, CharacterSelect and WeaponSelect.
+         * button, CharacterSelect and WeaponSelect. If all of the enemies on level 5 are killed it sets selection to true, removes the ship, sets
+         * level5 to false, sets populated to false, lev5Complete to true.
          * 
          * @param None there are no parameters
          * @return there is no return
@@ -218,6 +222,36 @@
                 removeObjects(getObjects(CharacterSelect.class));
                 removeObjects(getObjects(WeaponSelect.class));
                 removeObjects(getObjects(GO.class));
+            }
+            
+            if(getObjects(Enemies.class).size() == 0 && goButton.getLevel5() == true)
+            {
+                selection = true;
+                removeObjects(getObjects(Ships.class));
+                goButton.setLevel5(false);
+                populated = false;
+                lev5Complete = true;
+            }
+        }
+        
+        private void checkLev6()
+        {
+            if(goButton.getLevel6() == true && populated == false)
+            {
+                level6Spawn();
+                selection = false;
+                removeObjects(getObjects(CharacterSelect.class));
+                removeObjects(getObjects(WeaponSelect.class));
+                removeObjects(getObjects(GO.class));
+            }
+            
+            if(getObjects(Enemies.class).size() == 0 && goButton.getLevel6() == true)
+            {
+                selection = true;
+                removeObjects(getObjects(Ships.class));
+                goButton.setLevel6(false);
+                populated = false;
+                lev6Complete = true;
             }
         }
         
@@ -388,6 +422,48 @@
             addObject(new Slammer(), 445, 230);
         }
         
+        private void level6Spawn()
+        {
+            populated = true;
+            
+            setBackground("Planet.png");
+            
+            addObject(s1Ship, getWidth()/2, 715);
+            
+            addObject(new Exo(), 140, 50);
+            addObject(new Exo(), 210, 50);
+            addObject(new Exo(), 280, 50);
+            addObject(new Exo(), 350, 50);
+            addObject(new Exo(), 420, 50);
+            addObject(new Exo(), 490, 50);
+            addObject(new Exo(), 560, 50);
+            addObject(new Exo(), 630, 50);
+            addObject(new Exo(), 700, 50);
+            addObject(new Exo(), 770, 50);
+            
+            addObject(new DualShot(), 210, 110);
+            addObject(new DualShot(), 280, 110);
+            addObject(new DualShot(), 350, 110);
+            addObject(new DualShot(), 420, 110);
+            addObject(new DualShot(), 490, 110);
+            addObject(new DualShot(), 560, 110);
+            addObject(new DualShot(), 630, 110);
+            addObject(new DualShot(), 700, 110);
+            addObject(new DualShot(), 770, 110);
+            addObject(new DualShot(), 140, 110);
+            
+            addObject(new BasicDefender(), 210, 170);
+            addObject(new BasicDefender(), 280, 170);
+            addObject(new BasicDefender(), 350, 170);
+            addObject(new BasicDefender(), 420, 170);
+            addObject(new BasicDefender(), 490, 170);
+            addObject(new BasicDefender(), 560, 170);
+            addObject(new BasicDefender(), 630, 170);
+            addObject(new BasicDefender(), 700, 170);
+            addObject(new BasicDefender(), 770, 170);
+            addObject(new BasicDefender(), 140, 170);
+        }
+        
         /**
          * getLev2Complete returns the boolean lev2Complete
          * 
@@ -441,6 +517,17 @@
         public boolean getLev5Complete()
         {
             return lev5Complete;
+        }
+        
+        /**
+         * getLev6Complete returns the boolean lev6Complete
+         * 
+         * @param None there are no parameters
+         * @return the lev6Complete boolean variable
+         */
+        public boolean getLev6Complete()
+        {
+            return lev6Complete;
         }
         
         /**
