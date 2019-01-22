@@ -1,24 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BasicDefender here.
+ * Write a description of class AdvancedDefender here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BasicDefender extends Enemies
+public class AdvancedDefender extends Enemies
 {
-    //private double variable for the amount of health the BasicDefender has
-    private double health = 4;
-    //private int variable for counting the movements of the BasicDefender
+    //private double variable for the amount of health the AdvancedDefender has
+    private double health = 8;
+    //private int variable for counting the movements of the AdvancedDefender
     private int movementCount = 0;
     
     /**
-     * Act calls the die method if the health is less then or equal to 0 and adds 1 to the movementCount. If the health is equal to or is greater
-     * then 1 it continues to do a series of movements which makes the BasicDefender move from side to side. It also calls the checkDamage method.
-     * 
-     * @param None there are no parameters
-     * @return there is no return
+     * Act - do whatever the AdvancedDefender wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
@@ -53,7 +50,7 @@ public class BasicDefender extends Enemies
     }
     
     /**
-     * checkDamage checks to see if the BasicDefender has been hit by any bullets or missles. If so it will take a different amount of damage
+     * checkDamage checks to see if the AdvancedDefender has been hit by any bullets or missles. If so it will take a different amount of damage
      * depending on what bullet it is. If it is touching toxic waste and it's health is less then or equal to 1.5 it calls the die method. If it is 
      * touching a nuke it dies.
      * 
@@ -100,7 +97,7 @@ public class BasicDefender extends Enemies
     }
     
     /**
-     * removes the BasicDefender from the world
+     * removes the AdvancedDefender from the world
      * 
      * @param there are no parameters
      * @return there is no return

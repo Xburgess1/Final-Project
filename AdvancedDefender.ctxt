@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=AdvancedDefender
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ AdvancedDefender\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ AdvancedDefender\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ checkDamage()
+comment2.text=\r\n\ checkDamage\ checks\ to\ see\ if\ the\ AdvancedDefender\ has\ been\ hit\ by\ any\ bullets\ or\ missles.\ If\ so\ it\ will\ take\ a\ different\ amount\ of\ damage\r\n\ depending\ on\ what\ bullet\ it\ is.\ If\ it\ is\ touching\ toxic\ waste\ and\ it's\ health\ is\ less\ then\ or\ equal\ to\ 1.5\ it\ calls\ the\ die\ method.\ If\ it\ is\ \r\n\ touching\ a\ nuke\ it\ dies.\r\n\ \r\n\ @param\ None\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+comment3.params=
+comment3.target=void\ die()
+comment3.text=\r\n\ removes\ the\ AdvancedDefender\ from\ the\ world\r\n\ \r\n\ @param\ there\ are\ no\ parameters\r\n\ @return\ there\ is\ no\ return\r\n
+numComments=4
