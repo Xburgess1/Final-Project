@@ -93,8 +93,9 @@ public class BasicDefender extends Enemies
         }
         else if(isTouching(NukeV3S1.class))
         {
-            die();
             removeTouching(NukeV3S1.class);
+            die();
+            
         }
     }
     

@@ -25,7 +25,7 @@ public class DualShot extends Enemies
     {
         movementCount++;
         
-        checkDamage();
+        
         
         if(health >= 0.1)
         {
@@ -50,7 +50,7 @@ public class DualShot extends Enemies
             }
         }
         
-        if(Greenfoot.getRandomNumber(910) < 1)
+        if(Greenfoot.getRandomNumber(980) < 1)
         {
             charging = true;
         }
@@ -70,6 +70,8 @@ public class DualShot extends Enemies
                 charging = false;
             }
         }  
+        
+        checkDamage();
         
         if(health <= 0)
         {
@@ -118,8 +120,9 @@ public class DualShot extends Enemies
         }
         else if(isTouching(NukeV3S1.class))
         {
-            die();
             removeTouching(NukeV3S1.class);
+            die();
+            
         }
     }
     
