@@ -11,17 +11,18 @@
     public class SpaceWorld extends greenfoot.World
     {
         //selection is a boolean variable that determines if the selection menu will open
-        private boolean selection = false;
+        private boolean selection = true;
         //populated is a boolean variable that determines if the world has been populated with enemies
         private boolean populated = false;
         //The levComplete boolean variables determine if the player has beat a level. They will become true once the level is complete
-        private boolean lev1Complete = false;
-        private boolean lev2Complete = false;
-        private boolean lev3Complete = false;
-        private boolean lev4Complete = false;
-        private boolean lev5Complete = false;
-        private boolean lev6Complete = false;
-        private boolean level1 = true;
+        private boolean lev1Complete = true;
+        private boolean lev2Complete = true;
+        private boolean lev3Complete = true;
+        private boolean lev4Complete = true;
+        private boolean lev5Complete = true;
+        private boolean lev6Complete = true;
+        private boolean lev7Complete = false;
+        private boolean level1 = false;
         /**
          * If there are levels you would like to skip, first set selection to true, second set the right amount of levCompletes to true. (ie. 
          * if you want to skip to level 4 you set levels 1 to 3 to true). Lastly you set level1 to false.
@@ -46,7 +47,7 @@
         }
         
         /**
-         * act calls the checkLev1, 2, 3, 4, and 5 methods. While selection is set to true it calls the selectMenu and sets selection to false.
+         * act calls the checkLev1, 2, 3, 4, 5, 6 and 7 methods. While selection is set to true it calls the selectMenu and sets selection to false.
          * If all of the enemies in level 1 are killed it sets selection to true, removes the ship, sets level1 to false,
          * sets populated to false and sets lev1Complete to true.
          * 
@@ -66,6 +67,8 @@
             checkLev5();
             
             checkLev6();
+            
+            checkLev7();
            
             while(selection == true)
             {
@@ -80,6 +83,7 @@
                 level1 = false;
                 populated = false;
                 lev1Complete = true;
+                
             }
 
         }
@@ -135,6 +139,8 @@
                 removeObjects(getObjects(CharacterSelect.class));
                 removeObjects(getObjects(WeaponSelect.class));
                 removeObjects(getObjects(GO.class));
+                removeObjects(getObjects(SecondarySelectBox.class));
+                removeObjects(getObjects(PrimarySelectBox.class));
             }
             
             if(getObjects(Enemies.class).size() == 0 && goButton.getLevel2() == true)
@@ -164,6 +170,8 @@
                 removeObjects(getObjects(CharacterSelect.class));
                 removeObjects(getObjects(WeaponSelect.class));
                 removeObjects(getObjects(GO.class));
+                removeObjects(getObjects(SecondarySelectBox.class));
+                removeObjects(getObjects(PrimarySelectBox.class));
             }
             
             if(getObjects(Enemies.class).size() == 0 && goButton.getLevel3() == true)
@@ -193,6 +201,8 @@
                 removeObjects(getObjects(CharacterSelect.class));
                 removeObjects(getObjects(WeaponSelect.class));
                 removeObjects(getObjects(GO.class));
+                removeObjects(getObjects(SecondarySelectBox.class));
+                removeObjects(getObjects(PrimarySelectBox.class));
             }
             
             if(getObjects(Enemies.class).size() == 0 && goButton.getLevel4() == true)
@@ -222,6 +232,8 @@
                 removeObjects(getObjects(CharacterSelect.class));
                 removeObjects(getObjects(WeaponSelect.class));
                 removeObjects(getObjects(GO.class));
+                removeObjects(getObjects(SecondarySelectBox.class));
+                removeObjects(getObjects(PrimarySelectBox.class));
             }
             
             if(getObjects(Enemies.class).size() == 0 && goButton.getLevel5() == true)
@@ -234,6 +246,14 @@
             }
         }
         
+        /**
+         * checkLev6 checks to see if getLevel6 is true and populated is false, if so it calls level6Spawn, selection to false and removes the GO 
+         * button, CharacterSelect and WeaponSelect. If all of the enemies on level 6 are killed it sets selection to true, removes the ship, sets
+         * level6 to false, sets populated to false, lev6Complete to true.
+         * 
+         * @param None there are no parameters
+         * @return there is no return
+         */
         private void checkLev6()
         {
             if(goButton.getLevel6() == true && populated == false)
@@ -243,6 +263,8 @@
                 removeObjects(getObjects(CharacterSelect.class));
                 removeObjects(getObjects(WeaponSelect.class));
                 removeObjects(getObjects(GO.class));
+                removeObjects(getObjects(SecondarySelectBox.class));
+                removeObjects(getObjects(PrimarySelectBox.class));
             }
             
             if(getObjects(Enemies.class).size() == 0 && goButton.getLevel6() == true)
@@ -252,6 +274,37 @@
                 goButton.setLevel6(false);
                 populated = false;
                 lev6Complete = true;
+            }
+        }
+        
+        /**
+         * checkLev7 checks to see if getLevel7 is true and populated is false, if so it calls level7Spawn, selection to false and removes the GO 
+         * button, CharacterSelect and WeaponSelect. If all of the enemies on level 7 are killed it sets selection to true, removes the ship, sets
+         * level7 to false, sets populated to false, lev7Complete to true.
+         * 
+         * @param None there are no parameters
+         * @return there is no return
+         */
+        private void checkLev7()
+        {
+            if(goButton.getLevel7() == true && populated == false)
+            {
+                level7Spawn();
+                selection = false;
+                removeObjects(getObjects(CharacterSelect.class));
+                removeObjects(getObjects(WeaponSelect.class));
+                removeObjects(getObjects(GO.class));
+                removeObjects(getObjects(SecondarySelectBox.class));
+                removeObjects(getObjects(PrimarySelectBox.class));
+            }
+            
+            if(getObjects(Enemies.class).size() == 0 && goButton.getLevel7() == true)
+            {
+                selection = true;
+                removeObjects(getObjects(Ships.class));
+                goButton.setLevel7(false);
+                populated = false;
+                lev7Complete = true;
             }
         }
         
@@ -464,6 +517,59 @@
             addObject(new BasicDefender(), 140, 170);
         }
         
+        private void level7Spawn()
+        {
+            populated = true;
+            
+            setBackground("Planet.png");
+            
+            addObject(s1Ship, getWidth()/2, 715);
+            
+            addObject(new BasicDefender(), 210, 230);
+            addObject(new BasicDefender(), 280, 230);
+            addObject(new BasicDefender(), 350, 230);
+            addObject(new BasicDefender(), 420, 230);
+            addObject(new BasicDefender(), 490, 230);
+            addObject(new BasicDefender(), 560, 230);
+            addObject(new BasicDefender(), 630, 230);
+            addObject(new BasicDefender(), 700, 230);
+            addObject(new BasicDefender(), 770, 230);
+            addObject(new BasicDefender(), 140, 230);
+            
+            addObject(new DualShot(), 210, 170);
+            addObject(new DualShot(), 280, 170);
+            addObject(new DualShot(), 350, 170);
+            addObject(new DualShot(), 420, 170);
+            addObject(new DualShot(), 490, 170);
+            addObject(new DualShot(), 560, 170);
+            addObject(new DualShot(), 630, 170);
+            addObject(new DualShot(), 700, 170);
+            addObject(new DualShot(), 770, 170);
+            addObject(new DualShot(), 140, 170);
+            
+            addObject(new DualShot(), 210, 110);
+            addObject(new DualShot(), 280, 110);
+            addObject(new DualShot(), 350, 110);
+            addObject(new DualShot(), 420, 110);
+            addObject(new DualShot(), 490, 110);
+            addObject(new DualShot(), 560, 110);
+            addObject(new DualShot(), 630, 110);
+            addObject(new DualShot(), 700, 110);
+            addObject(new DualShot(), 770, 110);
+            addObject(new DualShot(), 140, 110);
+            
+            addObject(new Exo(), 140, 50);
+            addObject(new Exo(), 210, 50);
+            addObject(new Exo(), 280, 50);
+            addObject(new Exo(), 350, 50);
+            addObject(new Exo(), 420, 50);
+            addObject(new Exo(), 490, 50);
+            addObject(new Exo(), 560, 50);
+            addObject(new Exo(), 630, 50);
+            addObject(new Exo(), 700, 50);
+            addObject(new Exo(), 770, 50);
+        }
+        
         /**
          * getLev2Complete returns the boolean lev2Complete
          * 
@@ -528,6 +634,17 @@
         public boolean getLev6Complete()
         {
             return lev6Complete;
+        }
+        
+        /**
+         * getLev7Complete returns the boolean lev7Complete
+         * 
+         * @param None there are no parameters
+         * @return the lev7Complete boolean variable
+         */
+        public boolean getLev7Complete()
+        {
+            return lev7Complete;
         }
         
         /**

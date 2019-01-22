@@ -270,4 +270,81 @@ public class S1 extends Ships
     {
         plasmaSecV2Selected = plasSecSelect;
     }
+    
+    /**
+     * setNukeV3Selected allows other classes to change the nukeV3Selected variable
+     * 
+     * @param nukeSelect is used to set the value of nukeV3Selected
+     * @return there is no return
+     */
+    public void setNukeV3Selected(boolean nukeSelect)
+    {
+        nukeV3Selected = nukeSelect;
+    }
+    
+    /**
+     * allows other classes to access the value of missleV1Selected
+     * 
+     * @param None there are no parameters
+     * @return missleV1Selected at the boolean value
+     */
+    public boolean getMissleV1Selected()
+    {
+        return missleV1Selected;
+    }
+    
+    /**
+     * allows other classes to access the value of plasmaSecV2Selected
+     * 
+     * @param None there are no parameters
+     * @return plasmaSecV2Selected at the boolean value
+     */
+    public boolean getPlasmaSecV2Selected()
+    {
+        return plasmaSecV2Selected;
+    }
+    
+    /**
+     * allows other classes to access the value of bulletV1Selected
+     * 
+     * @param None there are no parameters
+     * @return bulletV1Selected at the boolean value
+     */
+    public boolean getBulletV1Selected()
+    {
+        return bulletV1Selected;
+    }
+    
+    /**
+     * allows other classes to access the value of plasmaV2Selected
+     * 
+     * @param None there are no parameters
+     * @return plasmaV2Selected at the boolean value
+     */
+    public boolean getPlasmaSelected()
+    {
+        return plasmaV2Selected;
+    }
+    
+    /**
+     * allows other classes to access the value of toxicV1Selected
+     * 
+     * @param None there are no parameters
+     * @return toxicV1Selected at the boolean value
+     */
+    public boolean getToxicSelected()
+    {
+        return toxicV1Selected;
+    }
+    
+    /**
+     * allows other classes to access the value of toxicV1Selected
+     * 
+     * @param None there are no parameters
+     * @return toxicV1Selected at the boolean value
+     */
+    public boolean getNukeSelected()
+    {
+        return nukeV3Selected;
+    }
 }

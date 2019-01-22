@@ -20,6 +20,13 @@ public class PlasmaSecSelect extends WeaponSelect
         {
             select.setMissleV1Selected(false);
             select.setPlasmaSecV2Selected(true);
+            select.setNukeV3Selected(false);
+        }
+        
+        if(select.getPlasmaSecV2Selected() == true)
+        {
+            space.removeObjects( space.getObjects(SecondarySelectBox.class) );
+            space.addObject(new SecondarySelectBox(), getX(), getY());
         }
     }    
 }

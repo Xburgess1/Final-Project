@@ -18,6 +18,8 @@ public class GO extends Actor
     private boolean level5 = false;
     //the level6 booelan is used to know if level 6 has started
     private boolean level6 = false;
+    //the level7 boolean is used to know if level 7 has started
+    private boolean level7 = false;
     
     /**
      * Act - do whatever the GO wants to do. This method is called whenever
@@ -46,6 +48,10 @@ public class GO extends Actor
             else if(((SpaceWorld)getWorld()).getLev5Complete() == true && ((SpaceWorld)getWorld()).getLev6Complete() == false)
             {
                 level6 = true;
+            }
+            else if(((SpaceWorld)getWorld()).getLev6Complete() == true && ((SpaceWorld)getWorld()).getLev7Complete() == false)
+            {
+                level7 = true;
             }
         }
     }
@@ -153,5 +159,26 @@ public class GO extends Actor
     public void setLevel6(boolean l6)
     {
         level6 = l6;
+    }
+    
+    /**
+     * getLevel7 returns the level7 variable
+     * 
+     * @param None there are no parameters
+     * @return the level7 at the given value
+     */
+    public boolean getLevel7()
+    {
+        return level7;
+    }
+    /**
+     * setLevel7 allows other classes to set the level7 variable
+     * 
+     * @param l7 is value used to set the level6 value
+     * @return there is no return
+     */
+    public void setLevel7(boolean l7)
+    {
+        level7 = l7;
     }
 }

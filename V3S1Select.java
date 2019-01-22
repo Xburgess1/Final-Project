@@ -23,5 +23,11 @@ public class V3S1Select extends WeaponSelect
             select.setBulletV1Selected(false);
             select.setToxicV3Selected(true);
         }
+        
+        if(select.getToxicSelected() == true)
+        {
+            space.removeObjects( space.getObjects(PrimarySelectBox.class) );
+            space.addObject(new PrimarySelectBox(), getX(), getY());
+        }
     }    
 }

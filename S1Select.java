@@ -55,6 +55,10 @@ public class S1Select extends CharacterSelect
         {
             getWorld().addObject(new V3S1Select(), 600, 503);
         }
+        if(((SpaceWorld)getWorld()).getLev6Complete() == true)
+        {
+            getWorld().addObject(new NukeSelect(), 600, 550);
+        }
     }
     
 }

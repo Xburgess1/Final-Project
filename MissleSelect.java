@@ -19,6 +19,14 @@ public class MissleSelect extends WeaponSelect
         if(Greenfoot.mouseClicked(this) == true)
         {
             select.setMissleV1Selected(true);
+            select.setPlasmaSecV2Selected(false);
+            select.setNukeV3Selected(false);
+        }
+        
+        if(select.getMissleV1Selected() == true)
+        {
+            space.removeObjects( space.getObjects(SecondarySelectBox.class) );
+            space.addObject(new SecondarySelectBox(), getX(), getY());
         }
     }    
 }

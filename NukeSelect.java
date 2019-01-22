@@ -14,6 +14,19 @@ public class NukeSelect extends WeaponSelect
      */
     public void act() 
     {
-        // Add your action code here.
+        SpaceWorld space = (SpaceWorld)getWorld();
+        S1 select = space.getShip();
+        if(Greenfoot.mouseClicked(this) == true)
+        {
+            select.setMissleV1Selected(false);
+            select.setPlasmaSecV2Selected(false);
+            select.setNukeV3Selected(true);
+        }
+        
+        if(select.getNukeSelected() == true)
+        {
+            space.removeObjects( space.getObjects(SecondarySelectBox.class) );
+            space.addObject(new SecondarySelectBox(), getX(), getY());
+        }
     }    
 }

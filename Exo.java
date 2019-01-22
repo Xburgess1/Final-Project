@@ -95,8 +95,8 @@ public class Exo extends Enemies
         }
         else if(isTouching(NukeV3S1.class))
         {
-            health = health - 10;
             removeTouching(NukeV3S1.class);
+            health = health - 10;
         }
     }
     
