@@ -37,7 +37,6 @@ public class S1 extends Ships
      */
     public void act() 
     {
-        //adds one to all of the delay variables
         shotDelay = shotDelay + 1;
         imageDelay = imageDelay + 1;
         missleDelay = missleDelay + 1;

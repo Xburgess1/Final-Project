@@ -3,26 +3,27 @@
     import java.util.List;
     
     /**
-     * Write a description of class MyWorld here.
-     * 
-     * @author (your name) 
-     * @version (a version number or a date)
+     * Name: Xavier Burgess
+     * Teacher: Mr. Hardman
+     * Course: Software Development
+     * Date Last Modified: January 22nd 2019
      */
     public class SpaceWorld extends greenfoot.World
     {
         //selection is a boolean variable that determines if the selection menu will open
-        private boolean selection = true;
+        private boolean selection = false;
         //populated is a boolean variable that determines if the world has been populated with enemies
         private boolean populated = false;
         //The levComplete boolean variables determine if the player has beat a level. They will become true once the level is complete
-        private boolean lev1Complete = true;
-        private boolean lev2Complete = true;
-        private boolean lev3Complete = true;
-        private boolean lev4Complete = true;
-        private boolean lev5Complete = true;
-        private boolean lev6Complete = true;
+        private boolean lev1Complete = false;
+        private boolean lev2Complete = false;
+        private boolean lev3Complete = false;
+        private boolean lev4Complete = false;
+        private boolean lev5Complete = false;
+        private boolean lev6Complete = false;
         private boolean lev7Complete = false;
-        private boolean level1 = false;
+        private boolean lev8Complete = false;
+        private boolean level1 = true;
         /**
          * If there are levels you would like to skip, first set selection to true, second set the right amount of levCompletes to true. (ie. 
          * if you want to skip to level 4 you set levels 1 to 3 to true). Lastly you set level1 to false.
@@ -47,9 +48,9 @@
         }
         
         /**
-         * act calls the checkLev1, 2, 3, 4, 5, 6 and 7 methods. While selection is set to true it calls the selectMenu and sets selection to false.
-         * If all of the enemies in level 1 are killed it sets selection to true, removes the ship, sets level1 to false,
-         * sets populated to false and sets lev1Complete to true.
+         * act calls the checkLev1, 2, 3, 4, 5, 6, 7 and 8 methods. It also calls the checkWin method. While selection is set to true it calls the 
+         * selectMenu and sets selection to false.If all of the enemies in level 1 are killed it sets selection to true, removes the ship, sets
+         * level1 to false, sets populated to false and sets lev1Complete to true.
          * 
          * @param None there are no parameters
          * @return there is no return
@@ -69,7 +70,11 @@
             checkLev6();
             
             checkLev7();
+            
+            checkLev8();
            
+            checkWin();
+            
             while(selection == true)
             {
                 selectMenu();
@@ -309,6 +314,50 @@
         }
         
         /**
+         * checkLev8 checks to see if getLevel8 is true and populated is false, if so it calls level8Spawn, selection to false and removes the GO 
+         * button, CharacterSelect and WeaponSelect. If all of the enemies on level 8 are killed it sets selection to true, removes the ship, sets
+         * level8 to false, sets populated to false, lev8Complete to true.
+         * 
+         * @param None there are no parameters
+         * @return there is no return
+         */
+        private void checkLev8()
+        {
+             if(goButton.getLevel8() == true && populated == false)
+            {
+                level8Spawn();
+                selection = false;
+                removeObjects(getObjects(CharacterSelect.class));
+                removeObjects(getObjects(WeaponSelect.class));
+                removeObjects(getObjects(GO.class));
+                removeObjects(getObjects(SecondarySelectBox.class));
+                removeObjects(getObjects(PrimarySelectBox.class));
+            }
+            
+            if(getObjects(Enemies.class).size() == 0 && goButton.getLevel8() == true)
+            {
+                lev8Complete = true;
+            }   
+        }
+        
+        /**
+         * checkWin sets up a GreenfootImage that says "You Win!", then if lev8Complete is true it adds the win text to the world and stops
+         * the program.
+         * 
+         * @param None there are no parameters
+         * @return there is no return
+         */
+        private void checkWin()
+        {
+            GreenfootImage win = new GreenfootImage("You Win!", 120, Color.WHITE, null);
+            if(lev8Complete == true)
+            {
+                getBackground().drawImage(win, getWidth()/2 - 150, getHeight()/2 - 120);
+                Greenfoot.stop();
+            }
+        }
+        
+        /**
          * level1Spawn sets populated to true and creates a line of BasicDefenders.
          * 
          * @param None there are no parameters
@@ -475,6 +524,13 @@
             addObject(new Slammer(), 445, 230);
         }
         
+        /**
+         * level6Spawn sets populated to true, sets the background to the Planet.png and adds the ship to the middle of the screen. Then it adds a row
+         * of Exos and below that it adds a row of DualShots. Lastly it adds a row of BasicDefenders.
+         * 
+         * @param None there are no parameters
+         * @return There is no return
+         */
         private void level6Spawn()
         {
             populated = true;
@@ -517,6 +573,13 @@
             addObject(new BasicDefender(), 140, 170);
         }
         
+        /**
+         * level7Spawn sets populated to true and sets the background to the planet.png. Then it adds the ship to the world and adds a row of Exos to
+         * the top of the world. Below that it adds two rows of DualShots and below those two a row of BasicDefenders.
+         * 
+         * @param None there are no parameters
+         * @return there is no return
+         */
         private void level7Spawn()
         {
             populated = true;
@@ -535,6 +598,66 @@
             addObject(new BasicDefender(), 700, 230);
             addObject(new BasicDefender(), 770, 230);
             addObject(new BasicDefender(), 140, 230);
+            
+            addObject(new DualShot(), 210, 170);
+            addObject(new DualShot(), 280, 170);
+            addObject(new DualShot(), 350, 170);
+            addObject(new DualShot(), 420, 170);
+            addObject(new DualShot(), 490, 170);
+            addObject(new DualShot(), 560, 170);
+            addObject(new DualShot(), 630, 170);
+            addObject(new DualShot(), 700, 170);
+            addObject(new DualShot(), 770, 170);
+            addObject(new DualShot(), 140, 170);
+            
+            addObject(new DualShot(), 210, 110);
+            addObject(new DualShot(), 280, 110);
+            addObject(new DualShot(), 350, 110);
+            addObject(new DualShot(), 420, 110);
+            addObject(new DualShot(), 490, 110);
+            addObject(new DualShot(), 560, 110);
+            addObject(new DualShot(), 630, 110);
+            addObject(new DualShot(), 700, 110);
+            addObject(new DualShot(), 770, 110);
+            addObject(new DualShot(), 140, 110);
+            
+            addObject(new Exo(), 140, 50);
+            addObject(new Exo(), 210, 50);
+            addObject(new Exo(), 280, 50);
+            addObject(new Exo(), 350, 50);
+            addObject(new Exo(), 420, 50);
+            addObject(new Exo(), 490, 50);
+            addObject(new Exo(), 560, 50);
+            addObject(new Exo(), 630, 50);
+            addObject(new Exo(), 700, 50);
+            addObject(new Exo(), 770, 50);
+        }
+        
+        /**
+         * level8Spawn sets populated to true and sets the background to the planet.png. Then it adds the ship to the world and adds a row of Exos to
+         * the top of the world. Below that it adds two rows of DualShots and below those two a row of AdvancedDefenders.
+         * 
+         * @param None there are no parameters
+         * @return there is no return
+         */
+        private void level8Spawn()
+        {
+            populated = true;
+            
+            setBackground("Planet.png");
+            
+            addObject(s1Ship, getWidth()/2, 715);
+            
+            addObject(new AdvancedDefender(), 210, 230);
+            addObject(new AdvancedDefender(), 280, 230);
+            addObject(new AdvancedDefender(), 350, 230);
+            addObject(new AdvancedDefender(), 420, 230);
+            addObject(new AdvancedDefender(), 490, 230);
+            addObject(new AdvancedDefender(), 560, 230);
+            addObject(new AdvancedDefender(), 630, 230);
+            addObject(new AdvancedDefender(), 700, 230);
+            addObject(new AdvancedDefender(), 770, 230);
+            addObject(new AdvancedDefender(), 140, 230);
             
             addObject(new DualShot(), 210, 170);
             addObject(new DualShot(), 280, 170);
@@ -645,6 +768,17 @@
         public boolean getLev7Complete()
         {
             return lev7Complete;
+        }
+        
+        /**
+         * getLev8Complete returns the boolean lev8Complete
+         * 
+         * @param None there are no parameters
+         * @return the lev8Complete boolean variable
+         */
+        public boolean getLev8Complete()
+        {
+            return lev8Complete;
         }
         
         /**
